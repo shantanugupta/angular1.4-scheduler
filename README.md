@@ -1,3 +1,3 @@
 # angular1.4-scheduler
 
-[https://scheduler](https://shantanugupta.github.io/angular1.4-scheduler/Index.html)
+Github hosted url: [https://scheduler](https://shantanugupta.github.io/angular1.4-scheduler/Index.html)
