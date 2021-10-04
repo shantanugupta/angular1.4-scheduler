@@ -1,0 +1,69 @@
+<!--
+active_start_date
+active_end_date
+active_start_time
+freq_subday_interval
+freq_subday_type
+active_start_time
+active_end_time
+scheduler.freqSubdayType
+-->
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <div>
+                <label class="control-label" for="startingDate">STARTING FROM</label>
+                <input id="startingDate" name="date" class="form-control text-uppercase" type="date" ng-model="schedule.active_start_date" />
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <div>
+                <label class="control-label" for="endingDate">AVAILABLE UNTIL</label>
+                <input id="endingDate" name="date" class="form-control text-uppercase" type="date" ng-model="schedule.active_end_date" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 form-inline form-group">
+        <div class="form-group">
+            <label class="radio-inline control-label" for="occurOnceRadio">
+                <strong><input id="occurOnceRadio" type="radio" name="recurrEveryRadio"
+								ng-model="occuranceChoice" ng-value="true" ng-checked="occuranceChoice"/>OCCUR</strong>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="recurrEvery" class="control-label">AT</label>
+            <input class="form-control text-uppercase" type="time" ng-model="schedule.active_start_time">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 form-inline form-group">
+        <div class="form-group">
+            <label class="radio-inline control-label" for="recurrEvery">
+                <strong><input type="radio" name="recurrEveryRadio" 
+							ng-model="occuranceChoice" ng-value="false" ng-checked="occuranceChoice"/>OCCUR EVERY</strong>
+            </label>
+        </div>		
+        <input type="number" id="durationNumber" class="form-control" placeholder="Duration" 
+				min="{{freqSubdayTypeMinMax[schedule.freq_subday_type].min}}" 
+				max="{{freqSubdayTypeMinMax[schedule.freq_subday_type].max}}" ng-model="schedule.freq_subday_interval" />		
+        <select id="durationUnit" class="form-control" data-toggle="popover" data-trigger="hover"
+                ng-model="schedule.freq_subday_type" 
+				ng-options="freqSubdayTypeE.key as freqSubdayTypeE.value for freqSubdayTypeE in scheduler.freqSubdayType">
+		</select>
+		
+        <div class="form-group">
+            <label class="control-label" for="recurrEvery">STARTING TIME</label>
+            <input class="form-control text-uppercase" type="time" ng-model="schedule.active_start_time">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="recurrEvery">END TIME</label>
+            <input class="form-control text-uppercase" type="time" ng-model="schedule.active_end_time">
+        </div>
+    </div>
+</div>
